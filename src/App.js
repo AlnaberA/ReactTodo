@@ -23,7 +23,8 @@ class App extends Component {
       }
     ]
   }
-  markComplete = (id) =>{
+
+  toggleComplete = (id) =>{
      this.setState(
        {
          todos: this.state.todos.map(todo =>{
@@ -34,10 +35,11 @@ class App extends Component {
          })
        });
   }
+
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} />
       </div>
     );
   }
