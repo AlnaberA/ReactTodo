@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import './todoStyles/todoItemStyle.css';
 export class TodoItems extends Component {
  getStyle = () => {
     return{
@@ -17,14 +17,13 @@ export class TodoItems extends Component {
         <p>
             <input type="checkbox" onChange={this.props.toggleComplete.bind(this, id)} />
             {title}
+            <button className="delBtnStyle">x</button>
         </p>
       </div>
     )
   }
 }
-
 TodoItems.propTypes={
     todo: PropTypes.object.isRequired
 }
-
 export default TodoItems

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import Todos from './components/todo/Todos';
 
-import './App.css';
-import Todos from './components/Todos';
-
+console.log("test");
 class App extends Component {
   state={
     todos:[
