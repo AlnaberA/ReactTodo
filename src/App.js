@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Todos from './components/todo/Todos';
+import Header from './components/layout/Header';
+import AddTodo from './components/todo/AddTodo';
 
 console.log("test");
 class App extends Component {
+  //App level state because the state is being shared between components. App level states should be handled with redux. 
   state={
     todos:[
       {
@@ -35,10 +38,20 @@ class App extends Component {
        });
   }
 
+  //Delete todo
+  delTodo=(id)=>{
+    this.setState({
+      //return id that is not passed in from the delTodo prop.
+      todos:[...this.state.todos.filter(todo=>todo.id!==id)]
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} />
+        <Header/>
+        <AddTodo/>
+        <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} delTodo={this.delTodo} />
       </div>
     );
   }
